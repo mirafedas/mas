@@ -396,7 +396,7 @@ merch-card[variant="mini-compare-chart"] [is="inline-price"] {
 }
 
 merch-card[variant="mini-compare-chart"] span.placeholder-resolved[data-template="strikethrough"] {
-    font-size: var(--consonant-merch-card-body-m-font-size);
+    font-size: var(--type-body-xs-size);
     font-weight: 500;
 }
 
@@ -496,10 +496,6 @@ merch-card[variant="mini-compare-chart"] .footer-row-cell-description a {
 
     merch-card[variant="mini-compare-chart"] [slot="heading-m-price"]:has(+ [slot="footer"]) {
         padding-bottom: 0;
-    }
-
-    merch-card[variant="mini-compare-chart"] span.placeholder-resolved[data-template="strikethrough"] {
-        font-size: var(--consonant-merch-card-body-xs-font-size);
     }
 
     merch-card[variant="mini-compare-chart"] [slot="price-commitment"] {
