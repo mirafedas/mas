@@ -485,6 +485,10 @@ merch-card[variant="mini-compare-chart"] [slot="promo-text"] {
     padding: var(--consonant-merch-spacing-xs) var(--consonant-merch-spacing-s) 0;
 }
 
+merch-card[variant="mini-compare-chart"] [slot="promo-text"] + [slot="callout-text"] {
+    margin-top: var(--consonant-merch-spacing-xs);
+}
+
 merch-card[variant="mini-compare-chart"] [slot="promo-text"] a {
     text-decoration: underline;
 }
