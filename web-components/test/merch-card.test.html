@@ -224,6 +224,22 @@
                     <span is="inline-price" data-display-per-unit="false" data-display-recurrence="true"
                         data-display-tax="false" data-template="priceStrikethrough" data-wcs-osi="abm"></span>
                 </h3>
+                <h5 id="this-is-the-green-promo-text-with-link" class="card-heading" slot="promo-text">
+                    This is the green promo text with <a href="https://www.stage.adobe.com/" daa-ll="link-1--Merch card segment" target="_blank">link</a>!
+                </h5>
+                <div slot="callout-text">
+                    <div class="callout-content-wrapper-with-icon">
+                        <div>AI calllout text </div>
+                        <img src="/drafts/rosahu/info-icon.svg" title="this is a dummy tooltip text" class="callout-icon">
+                    </div>
+                </div>
+                <div slot="callout-text">
+                    <div>
+                        <div>For a limited time pay 
+                            <span is="inline-price" data-display-old-price="true" data-display-per-unit="false" data-quantity="1" data-template="price" data-wcs-osi="Mutn1LYoGojkrcMdCLO7LQlx1FyTHw27ETsfLv0h8DQ" class="placeholder-failed"></span> when you add AI assistant to Acrobat Reader, Standard, or Pro. Ends 6/4. <a href="http://www.stage.adobe.com/" daa-ll="link-2--Merch card segment" target="_blank">link!</a>
+                        </div>
+                    </div>
+                </div>
                 <div slot="body-xs">
                     <p>Get 20+ Creative Cloud apps and services.</p>
                     <p>Get 20+ Creative Cloud apps and services.</p>
@@ -236,7 +252,7 @@
                     <a href="https://business.adobe.com/" class="con-button blue">Save now</a>
                 </div>
             </merch-card>
-            <merch-card variant="segment">
+            <merch-card variant="segment" class="promo-bottom">
                 <h3 slot="heading-xs">Students and teachers</h3>
                 <h3 slot="heading-xs">
                     <span is="inline-price" data-display-per-unit="false" data-display-recurrence="true"
@@ -251,6 +267,21 @@
                     <p>Get 20+ Creative Cloud apps and services.</p>
                     <p><a href="https://adobe.com">See what’s included.</a> | <a href="https://adobe.com">Learn
                             more.</a></p>
+                </div>
+                <h5 id="this-is-the-green-promo-text-with-link" class="card-heading" slot="promo-text">
+                    This is the green promo text with <a href="https://www.stage.adobe.com/" daa-ll="link-1--Merch card segment" target="_blank">link</a>!
+                </h5>
+                <div slot="callout-text">
+                    <div class="callout-content-wrapper-with-icon">
+                        <div>AI calllout text </div>
+                        <img src="/drafts/rosahu/info-icon.svg" title="this is a dummy tooltip text" class="callout-icon">
+                    </div>
+                </div>
+                <div slot="callout-text">
+                    <div>
+                        <div>For a limited time pay <span is="inline-price" data-display-old-price="true" data-display-per-unit="false" data-quantity="1" data-template="price" data-wcs-osi="Mutn1LYoGojkrcMdCLO7LQlx1FyTHw27ETsfLv0h8DQ" class="placeholder-failed"></span> when you add AI assistant to Acrobat Reader, Standard, or Pro. Ends 6/4. <a href="http://www.stage.adobe.com/" daa-ll="link-2--Merch card segment" target="_blank">link!</a>
+                        </div>
+                    </div>
                 </div>
                 <div slot="footer">
                     <a href="https://business.adobe.com/" class="con-button blue">Save now</a>
@@ -521,6 +552,37 @@
                 <merch-icon slot="icons" size="l" src="/test/mocks/img/creative-cloud.svg"
                     alt="Creative Cloud All Apps"></merch-icon>
                 <h3 slot="heading-xs">Photoshop</h3>
+                <h5 id="this-is-the-green-promo-text-with-link" class="card-heading" slot="promo-text">
+                    This is the green promo text with <a href="https://www.stage.adobe.com/" daa-ll="link-1--Merch card segment" target="_blank">link</a>!
+                </h5>
+                <h4 slot="body-xxs">Desktop + Mobile</h4>
+                <div slot="body-xs">
+                    <p>Our real-time customer data platform collects B2C and B2B data from across systems and unifies it
+                        into real-time profiles ready for activation across any channel.</p>
+                </div>
+                <div slot="footer">
+                    <a href="https://business.adobe.com" class="con-button blue">Learn more</a>
+                </div>
+                <div slot="bg-image" class="bgimage">
+                    <picture>
+                        <source type="image/webp" srcset="../test/img/special-offers-img.webp"
+                            media="(min-width: 600px)">
+                        <source type="image/webp" srcset="../test/img/special-offers-img.webp">
+                        <source type="image/png" srcset="../test/img/special-offers-img.png" media="(min-width: 600px)">
+                        <img loading="lazy" alt="" src="../test/img/special-offers-img.png" width="750" height="357">
+                    </picture>
+                </div>
+            </merch-card>
+        </div>
+        <div class="one-merch-card image">
+            <merch-card variant="image" badge-background-color="#EDCC2D" badge-color="#000000" badge-text="Best Value"
+                tabindex="0" filters="" types="" class="promo-bottom">
+                <merch-icon slot="icons" size="l" src="/test/mocks/img/creative-cloud.svg"
+                    alt="Creative Cloud All Apps"></merch-icon>
+                <h3 slot="heading-xs">Photoshop</h3>
+                <h5 id="this-is-the-green-promo-text-with-link" class="card-heading" slot="promo-text">
+                    This is the green promo text with <a href="https://www.stage.adobe.com/" daa-ll="link-1--Merch card segment" target="_blank">link</a>!
+                </h5>
                 <h4 slot="body-xxs">Desktop + Mobile</h4>
                 <div slot="body-xs">
                     <p>Our real-time customer data platform collects B2C and B2B data from across systems and unifies it
@@ -767,6 +829,9 @@
                 badge-background-color="#2D9D78" badge-color="#fff" badge-text="Save a lot" filters="all" types="" tabindex="0"
                 style="border: 1px solid rgb(45, 157, 120);">
                 <h3 id="merch-card-background-opacity-70-segment" class="card-heading" slot="heading-xs">merch-card aaa bbbccc dddeee bbbccc dddeee</h3>
+                <h5 id="this-is-the-green-promo-text-with-link" class="card-heading" slot="promo-text">
+                    This is the green promo text with <a href="https://www.stage.adobe.com/" daa-ll="link-1--Merch card segment" target="_blank">link</a>!
+                </h5>
                 <div slot="body-xs">
                     <p>Save over 25% on 20+ apps, including Photoshop, Illustrator, and more. First year only. Ends 27 here is an
                         inline price <span is="inline-price" data-display-old-price="true" data-display-per-unit="false"
@@ -788,10 +853,13 @@
                 </div>
                 <div slot="footer"><a href="https://business.adobe.com/" class="con-button blue" target="_blank">Save now</a></div>
             </merch-card>
-            <merch-card class="merch-card background-opacity-70 segment badge-card" variant="segment" size=""
+            <merch-card class="merch-card background-opacity-70 segment badge-card promo-bottom" variant="segment" size=""
                 badge-background-color="#2D9D78" badge-color="#fff" badge-text="Save a lot" filters="all" types="" tabindex="0"
                 style="border: 1px solid rgb(45, 157, 120);">
                 <h3 id="merch-card-background-opacity-70-segment" class="card-heading" slot="heading-xs">Photoshop</h3>
+                <h5 id="this-is-the-green-promo-text-with-link" class="card-heading" slot="promo-text">
+                    This is the green promo text with <a href="https://www.stage.adobe.com/" daa-ll="link-1--Merch card segment" target="_blank">link</a>!
+                </h5>
                 <div slot="body-xs">
                     <p>Save over 25% on 20+ apps, including Photoshop, Illustrator, and more. First year only. Ends 27 here is an
                         inline price <span is="inline-price" data-display-old-price="true" data-display-per-unit="false"
@@ -799,21 +867,6 @@
                             data-quantity="1" data-template="price"
                             data-wcs-osi="abm"></span>
                     </p>
-                    <p slot="promo-text" class="promo-text">This is promo text <a href="https://adobe.com/"
-                        target="_blank">with a
-                        link</a></p>
-                    <div slot="body-xs">
-                        <p>Save over 25% on 20+ apps, including Photoshop, Illustrator, and more. First year only. Ends 27 here is an
-                            inline price <span is="inline-price" data-display-old-price="true" data-display-per-unit="false"
-                                data-display-recurrence="true" data-display-tax="false" data-force-tax-exclusive="false"
-                                data-quantity="1" data-template="price"
-                                data-wcs-osi="abm"></span>
-                        </p>
-                        <p><a href="https://www.adobe.com/creativecloud.html#cc-see-whats-included" target="_blank">See what's
-                                included</a> | <a href="https://www.adobe.com/creativecloud/all-apps.html" target="_blank">Learn
-                                more</a></p>
-                        <p class="action-area"></p>
-                    </div>
                     <p><a href="https://www.adobe.com/creativecloud.html#cc-see-whats-included" target="_blank">See what's
                             included</a> | <a href="https://www.adobe.com/creativecloud/all-apps.html" target="_blank">Learn
                             more</a></p>
@@ -880,6 +933,9 @@
                     <p>Lightroom, Lightroom Classic, Photoshop on desktop and iPad, and 1TB of cloud storage.</p>
                     <p><a href="https://adobe.com">Learn more</a></p>
                 </div>
+                <h5 id="this-is-the-green-promo-text-with-link" class="card-heading" slot="promo-text">
+                    This is the green promo text with <a href="https://www.stage.adobe.com/" daa-ll="link-1--Merch card segment" target="_blank">link</a>!
+                </h5>
                 <div slot="callout-text">
                     <div class="callout-content-wrapper-with-icon">
                         <div>AI Assistant add-on available </div>
@@ -899,7 +955,7 @@
                 </div>
             </merch-card>
             <merch-card variant="catalog" action-menu="true" badge-color="#EDCC2D" badge-background-color="#000000"
-                badge-text="Best value">
+                badge-text="Best value" class="promo-bottom">
                 <merch-icon slot="icons" size="l" src="../test/img/cc-logo.png"
                     alt="Creative Cloud All Apps"></merch-icon>
                 <div slot="action-menu-content">
@@ -919,16 +975,19 @@
                     <span is="inline-price" data-display-per-unit="false" data-display-recurrence="true"
                         data-display-tax="false" data-template="priceOptical" data-wcs-osi="abm-edu"></span>
                 </h3>
-                <div slot="body-xs">
-                    <p>Lightroom, Lightroom Classic, Photoshop on desktop and iPad, and 1TB of cloud storage.</p>
-                    <p><a href="https://adobe.com">Learn more</a></p>
-                </div>
+                <h5 id="this-is-the-green-promo-text-with-link" class="card-heading" slot="promo-text">
+                    This is the green promo text with <a href="https://www.stage.adobe.com/" daa-ll="link-1--Merch card segment" target="_blank">link</a>!
+                </h5>
                 <div slot="callout-text">
                     <div>
                         <div>
                             For a limited time pay
                             <span is="inline-price" data-display-old-price="true" data-display-per-unit="false" data-quantity="1" data-template="price" data-wcs-osi="Mutn1LYoGojkrcMdCLO7LQlx1FyTHw27ETsfLv0h8DQ" class="placeholder-failed"></span> when you add AI assistant to Acrobat Reader, Standard, or Pro. Ends 6/4.<a href="https://www.adobe.com/creativecloud/all-apps.html" daa-ll="Learn More-1--H4 Subtext H5 Promo Text" target="_blank">Learn More</a> </div>
                     </div>
+                </div>
+                <div slot="body-xs">
+                    <p>Lightroom, Lightroom Classic, Photoshop on desktop and iPad, and 1TB of cloud storage.</p>
+                    <p><a href="https://adobe.com">Learn more</a></p>
                 </div>
                 <div slot="footer">
                     <a href="https://business.adobe.com/">Android</a>
@@ -981,6 +1040,9 @@
                     <p>
                     <a href="https://adobe.com">See plans & pricing details</a></p>
                 </div>
+                <h5 id="this-is-the-green-promo-text-with-link" class="card-heading" slot="promo-text">
+                    This is the green promo text with <a href="https://www.stage.adobe.com/" daa-ll="link-1--Merch card segment" target="_blank">link</a>!
+                </h5>
                 <div slot="callout-text">
                     <div class="callout-content-wrapper-with-icon">
                         <div>AI Assistant add-on available </div>
@@ -1000,7 +1062,8 @@
             </merch-card>
             <merch-card variant="plans" badge-color="#EDCC2D" badge-background-color="#000000"" badge-text=" Best value"
                 checkbox-label="Add a 30-day free trial of Adobe Stock.*"
-                stock-offer-osis="stock-puf,stock-abm,stock-m2m">
+                stock-offer-osis="stock-puf,stock-abm,stock-m2m"
+                class="promo-bottom">
                 <merch-icon slot="icons" size="l" src="../test/img/cc-logo.png"
                     alt="Creative Cloud All Apps"></merch-icon>
                 <h4 slot="heading-xs">Photography</h4>
@@ -1008,12 +1071,9 @@
                     <span is="inline-price" data-display-per-unit="false" data-display-recurrence="true"
                         data-display-tax="false" data-wcs-osi="abm"></span>
                 </h3>
-                <p slot="body-xxs" id="individuals1">Desktop + Mobile</p>
-                <div slot="body-xs">
-                    <p>Lightroom, Lightroom Classic, Photoshop on desktop and iPad, and 1TB of cloud storage.</p>
-                    <p><a href="https://adobe.com">Compare photography plans</a></p>
-                    <p><a href="https://adobe.com">See plans & pricing details</a></p>
-                </div>
+                <h5 id="this-is-the-green-promo-text-with-link" class="card-heading" slot="promo-text">
+                    This is the green promo text with <a href="https://www.stage.adobe.com/" daa-ll="link-1--Merch card segment" target="_blank">link</a>!
+                </h5>
                 <div slot="callout-text">
                     <div class="callout-content-wrapper-with-icon">
                         <div>AI Assistant add-on available </div>
@@ -1026,6 +1086,12 @@
                             For a limited time pay
                             <span is="inline-price" data-display-old-price="true" data-display-per-unit="false" data-quantity="1" data-template="price" data-wcs-osi="Mutn1LYoGojkrcMdCLO7LQlx1FyTHw27ETsfLv0h8DQ" class="placeholder-failed"></span> when you add AI assistant to Acrobat Reader, Standard, or Pro. Ends 6/4.<a href="https://www.adobe.com/creativecloud/all-apps.html" daa-ll="Learn More-1--H4 Subtext H5 Promo Text" target="_blank">Learn More</a> </div>
                     </div>
+                </div>
+                <p slot="body-xxs" id="individuals1">Desktop + Mobile</p>
+                <div slot="body-xs">
+                    <p>Lightroom, Lightroom Classic, Photoshop on desktop and iPad, and 1TB of cloud storage.</p>
+                    <p><a href="https://adobe.com">Compare photography plans</a></p>
+                    <p><a href="https://adobe.com">See plans & pricing details</a></p>
                 </div>
                 <div slot="footer">
                     <a is="checkout-link" href="#" class="con-button blue active" data-wcs-osi="abm">Save now</a>
