@@ -317,7 +317,7 @@ var I=window,V=I.ShadowRoot&&(I.ShadyCSS===void 0||I.ShadyCSS.nativeShadow)&&"ad
         }
     }
 
-    @media screen and ${y(z)} {
+    @media screen and ${y(T)} {
         :host([variant='mini-compare-chart']) .top-section {
             padding-top: var(--consonant-merch-spacing-xs);
         }
@@ -917,7 +917,7 @@ merch-card[variant="mini-compare-chart"] .footer-row-cell-description a {
     text-decoration: solid;
 }
 
-@media screen and ${z} {
+@media screen and ${T} {
     merch-card[variant="mini-compare-chart"] .mini-compare-chart-badge + [slot='heading-m'] {
         margin-top: var(--consonant-merch-spacing-m);
     }
@@ -1008,7 +1008,7 @@ div[slot='bg-image'] img {
 }
 
 /* Mobile */
-@media screen and ${z} {
+@media screen and ${T} {
     :root {
         --consonant-merch-card-mini-compare-chart-width: 142px;
         --consonant-merch-card-segment-width: 276px;
@@ -1281,7 +1281,7 @@ div[slot='bg-image'] img {
 }
 
 /* Mobile */
-@media screen and ${z} {
+@media screen and ${T} {
     .one-merch-card.twp,
     .two-merch-cards.twp,
     .three-merch-cards.twp {
@@ -1366,7 +1366,7 @@ div[slot='bg-image'] img {
     gap: var(--consonant-merch-spacing-xs);
 }
 
-@media screen and ${z} {
+@media screen and ${T} {
     .two-merch-cards.mini-compare-chart merch-card [slot="footer"] a,
     .three-merch-cards.mini-compare-chart merch-card [slot="footer"] a,
     .four-merch-cards.mini-compare-chart merch-card [slot="footer"] a {
