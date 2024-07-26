@@ -25,7 +25,7 @@ describe('Deep linking', () => {
         });
         document.location.hash = 'filter=all&single_app=acrobat&types=desktop';
         await delay(1);
-        expect(events.length).to.equal(1);
+        expect(events.length).to.equal(2);
         expect(events[0]).to.deep.equal({
             filter: 'all',
             search: undefined,
