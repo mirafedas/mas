@@ -5234,7 +5234,7 @@ function pushState(state) {
 }
 function deeplink(callback) {
   const handler = () => {
-    if (!window.location.hash.includes("=")) return;
+    if (window.location.hash && !window.location.hash.includes("=")) return;
     const state = parseState(window.location.hash);
     callback(state);
   };
