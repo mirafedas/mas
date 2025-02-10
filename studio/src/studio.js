@@ -1,142 +1,103 @@
-import { html, css, LitElement, nothing } from 'lit';
-import { Store } from './store/Store.js';
-import { EVENT_SUBMIT } from './events.js';
-import { repeat } from 'lit/directives/repeat.js';
-import { Reaction } from 'mobx';
-import { MobxReactionUpdateCustom } from '@adobe/lit-mobx/lib/mixin-custom.js';
-import { deeplink, pushState } from '@adobe/mas-commons';
+import { html, LitElement, nothing } from 'lit';
+import './editor-panel.js';
+import './editors/merch-card-editor.js';
+import './rte/rte-field.js';
+import './rte/rte-link-editor.js';
+import './mas-top-nav.js';
+import './mas-side-nav.js';
+import './mas-toolbar.js';
+import './mas-content.js';
+import './mas-repository.js';
+import './mas-toast.js';
+import './mas-hash-manager.js';
+import './mas-splash-screen.js';
+import './filters/locale-picker.js';
+import StoreController from './reactivity/store-controller.js';
+import Store from './store.js';
+import { WCS_ENV_STAGE } from './constants.js';
 
-const models = {
-    merchCard: {
-        path: '/conf/sandbox/settings/dam/cfm/models/merch-card',
-        name: 'Merch Card',
-    },
+const BUCKET_TO_ENV = {
+    e155390: 'qa',
+    e59471: 'stage',
+    e59433: 'prod',
 };
-class MasStudio extends MobxReactionUpdateCustom(LitElement, Reaction) {
-    static styles = css`
-        :host {
-            display: block;
-        }
 
-        sp-theme {
-            display: contents;
-        }
-    `;
-
+class MasStudio extends LitElement {
     static properties = {
-        store: { type: Object },
         bucket: { type: String, attribute: 'aem-bucket' },
-        searchText: { type: String },
+        baseUrl: { type: String, attribute: 'base-url' },
     };
 
     constructor() {
         super();
+        this.bucket = 'e59433';
+    }
+
+    // we need to completely remove&add element to the dom
+    toggleCommerce(env) {
+        const service = this.querySelector('mas-commerce-service');
+        const newService = service.cloneNode(true);
+        newService.setAttribute('env', env);
+        service.remove();
+        this.prepend(newService);
     }
 
     connectedCallback() {
         super.connectedCallback();
-        this.store = new Store(this.bucket);
-        this.startDeeplink();
     }
 
     disconnectedCallback() {
         super.disconnectedCallback();
-        this.deeplinkDisposer();
     }
 
-    get search() {
-        return this.shadowRoot.querySelector('sp-search');
+    createRenderRoot() {
+        return this;
     }
 
-    get picker() {
-        return this.shadowRoot.querySelector('sp-picker');
+    get aemEnv() {
+        return BUCKET_TO_ENV[this.bucket] || BUCKET_TO_ENV.e59433;
     }
 
-    get result() {
-        if (this.store.search.result.length === 0) return nothing;
-        return html`<ul>
-            ${repeat(
-                this.store.search.result,
-                (item) => item.path,
-                (item) => {
-                    switch (item.model.path) {
-                        case models.merchCard.path:
-                            return html`<merch-card>
-                                <merch-datasource
-                                    odin
-                                    source="odin-author"
-                                    path="${item.path}"
-                                ></merch-datasource>
-                            </merch-card>`;
-                        default:
-                            return nothing;
-                    }
-                },
-            )}
-        </ul>`;
+    currentPage = new StoreController(this, Store.currentPage);
+    commerceEnv = new StoreController(this, Store.commerceEnv);
+
+    get content() {
+        if (this.currentPage.value !== 'content') return nothing;
+        return html`<div id="content-container">
+            <mas-toolbar></mas-toolbar>
+            <mas-content></mas-content>
+        </div> `;
+    }
+
+    get splashScreen() {
+        if (this.currentPage.value !== 'splash') return nothing;
+        return html`<mas-splash-screen
+            base-url=${this.baseUrl}
+        ></mas-splash-screen>`;
     }
 
     render() {
         return html`
-            <h1>Merch at Scale Studio</h1>
-            <div>
-                <sp-search
-                    placeholder="Search"
-                    @input="${this.handleSearch}"
-                    @submit="${this.handleSearch}"
-                    value=${this.searchText}
-                    size="m"
-                ></sp-search>
-                <sp-picker
-                    label="Fragment model"
-                    size="m"
-                    value=${this.store.search.modelId}
-                >
-                    <sp-menu-item value="all">All</sp-menu-item>
-                    <sp-menu-item
-                        value="L2NvbmYvc2FuZGJveC9zZXR0aW5ncy9kYW0vY2ZtL21vZGVscy9tZXJjaC1jYXJk"
-                        >Merch Card</sp-menu-item
-                    >
-                </sp-picker>
-                <sp-button
-                    ?disabled="${!this.searchText}"
-                    @click=${this.doSearch}
-                    >Search</sp-button
-                >
+            ${this.commerceEnv.value === WCS_ENV_STAGE
+                ? html`<mas-commerce-service
+                      env="${WCS_ENV_STAGE}"
+                  ></mas-commerce-service>`
+                : html`<mas-commerce-service></mas-commerce-service>`}
+            <mas-top-nav aem-env="${this.aemEnv}"></mas-top-nav>
+            <mas-repository
+                bucket="${this.bucket}"
+                base-url="${this.baseUrl}"
+            ></mas-repository>
+            <div class="studio-content">
+                <mas-side-nav></mas-side-nav>
+                <div class="main-container">
+                    ${this.splashScreen} ${this.content}
+                </div>
             </div>
-            ${this.result}
+            <editor-panel></editor-panel>
+            <mas-toast></mas-toast>
+            <mas-hash-manager></mas-hash-manager>
         `;
-    }
-
-    async startDeeplink() {
-        this.deeplinkDisposer = deeplink(({ path, modelId, query }) => {
-            this.searchText = query;
-            this.store.search.update({ path, modelId });
-        });
-        if (this.searchText) {
-            await this.updateComplete;
-            this.doSearch();
-        }
-    }
-
-    /**
-     * @param {Event} e;
-     */
-    handleSearch(e) {
-        this.searchText = this.search.value;
-        if (e.type === EVENT_SUBMIT) {
-            e.preventDefault();
-            this.doSearch();
-        }
-    }
-
-    async doSearch() {
-        const query = this.searchText;
-        const modelId = this.picker.value.replace('all', '');
-        const path = '/content/dam/sandbox/mas';
-        const search = { query, path, modelId };
-        pushState(search);
-        this.store.doSearch(search);
     }
 }
 

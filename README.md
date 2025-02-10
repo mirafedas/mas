@@ -20,28 +20,43 @@ npm run lint
 ## Local development
 ```
 npm run build
-aem up
+npm run studio
+```
+To test your local changes from Milo run in milo root:
+```
+aem up --port 6456
+```
+and access studio at http://localhost:3000/studio.html?milolibs=local
+
+to test gallery:
+1. shut down npm run studio if you were running it.
+2.
+```
+npm run gallery
 ```
 
 Refer to the corresponding README.md under any of the packages:
-* commerce - contains generic commerce-related logic, 'price' and 'checkout-link' web components
-* web-components - merch-card, merch-offer-selector and other web components
 * studio - M@S Studio for creating, updating and publishing merch fragments
+* ost-audit - crawls EDS pages HTML for OST links and generates a CSV report
 
-# Pre push hook
-Before each push 'npm run build' is triggered.
-1. It will build the artifacts in the /libs folder
-2. If any of the artifacts have an update the hook will stage the changes and commit
-3. If there are unstaged/uncommitted changes the hook will prevent the push
-
-There is no need to run 'npm run build' manually, but if you run it and commit - no issue (then hook won't do an additional commit).
-
-# Consumption of artifacts in Milo
-Please run 'npm run build:milo'
+## Nala E2E tests
+for initial setup:
 ```
-npm run build:milo
+npm install
+npx playwright install
+export IMS_EMAIL=<val>
+export IMS_PASS=<val>
 ```
-Copy required artifacts from 'milo-libs' folder to milo/libs/deps.
+Ask colleagues/slack for IMS_EMAIL ad IMS_PASS values, your user might not work as expected because it's not '@adobetest.com' account.
+
+`npm run nala local` - to run on local
+`npm run nala MWPW-160756` - to run on branch
+`npm run nala MWPW-160756 mode=ui` - ui mode
+
+Beware that 'npm run nala' runs `node nala/utils/nala.run.js`, it's not the script that GH action does. 
+If you want to debug GH action script run sh `nala/utils/pr.run.sh`
+# CI/CD
+documented in .github/README.md
 
 #### Troubleshooting
 Please reach out to us in `#tacocat-friends` for any questions.

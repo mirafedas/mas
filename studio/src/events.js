@@ -1,8 +1,8 @@
-/* Event types */
-export const EVENT_KEYDOWN = 'keydown';
-export const EVENT_KEYUP = 'keyup';
-export const EVENT_CHANGE = 'change';
-export const EVENT_SUBMIT = 'submit';
+import MasEvent from './reactivity/mas-event.js';
 
-/* Keys */
-export const KEY_ENTER = 'Enter';
+const Events = {
+    toast: new MasEvent(),
+    fragmentAdded: new MasEvent(),
+};
+
+export default Events;
